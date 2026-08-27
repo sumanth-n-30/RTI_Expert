@@ -83,7 +83,7 @@ def ask_ollama(prompt: str, model: str = None) -> str:
     response = requests.post(
         f"{OLLAMA_URL}/api/generate",
         json={"model": model, "prompt": prompt, "stream": False},
-        timeout=180
+        timeout=600
     )
     response.raise_for_status()
     return response.json().get("response", "").strip()
@@ -381,8 +381,17 @@ def generate_draft():
         insights = ""
         improved_draft = ""
         if ollama_is_running():
-            insights = ask_ollama(f"Briefly list 2-3 reasons why this RTI query might be rejected:\n\n{query}")
-            improved_draft = ask_ollama(f"Rewrite this RTI application to be more specific, professional, and less likely to be rejected. Return only the rewritten text.\n\nOriginal:\n{query}")
+            try:
+                insights = ask_ollama(f"Briefly list 2-3 reasons why this RTI query might be rejected:\n\n{query}")
+            except Exception as e:
+                print(f"[Ollama Error Insights] {e}")
+                insights = "AI Insights are currently unavailable due to an Ollama timeout. Your local model may be overloaded."
+                
+            try:
+                improved_draft = ask_ollama(f"Rewrite this RTI application to be more specific, professional, and less likely to be rejected. Return only the rewritten text.\n\nOriginal:\n{query}")
+            except Exception as e:
+                print(f"[Ollama Error Draft] {e}")
+                improved_draft = "AI Drafting is currently unavailable due to an Ollama timeout. Your local model may be overloaded."
             
         return jsonify({
             "insights": insights,
@@ -453,11 +462,10 @@ Please answer the user's question directly based on this context. Be friendly, c
 Keep your response concise and structured. Use bullet points if necessary.
 """
         reply = ask_ollama(f"{system_prompt}\n\nUSER QUESTION:\n{query}")
-        
         return jsonify({"reply": reply})
     except Exception as e:
         print(f"[Chat Error] {e}")
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"reply": "I'm sorry, my AI brain (Ollama) timed out while trying to think of an answer. Your local model may be overloaded."}), 200
 
 if __name__ == "__main__":
     print("\n" + "="*55)
