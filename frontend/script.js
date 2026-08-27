@@ -73,7 +73,7 @@ EXTRACTED RTI QUERY:
 ML PREDICTION: ${data.prediction || 'Unknown'} (${data.confidence || 0}% confidence)
 
 IDENTIFIED REJECTION RISKS:
-${data.insights && data.insights.length ? data.insights.join('\\n') : 'None'}
+${data.insights && data.insights.length ? data.insights.join('\n') : 'None'}
 
 AI-IMPROVED DRAFT (generated):
 ${data.draft || 'Not generated yet'}
@@ -81,16 +81,16 @@ ${data.draft || 'Not generated yet'}
     } catch(e) {}
   }
 
-  // Restore chat history from sessionStorage
-  const savedHistory = sessionStorage.getItem('chatHistory');
+  // Restore chat history from localStorage
+  const savedHistory = localStorage.getItem('chatHistory');
   if (savedHistory) {
     try {
-      history = JSON.parse(savedHistory);
-      if (history.length > 0) {
+      chatHistoryData = JSON.parse(savedHistory);
+      if (chatHistoryData.length > 0) {
         const suggestions = document.getElementById('suggestions');
         if (suggestions) suggestions.style.display = 'none';
         
-        history.forEach(msg => {
+        chatHistoryData.forEach(msg => {
           if (msg.role === 'user') {
             appendMsg('user', msg.content.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), msg.time || now());
           } else {
@@ -233,8 +233,8 @@ async function sendMessage() {
   const t = now();
   appendMsg('user', text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), t);
 
-  history.push({ role: 'user', content: text, time: t });
-  sessionStorage.setItem('chatHistory', JSON.stringify(history));
+  chatHistoryData.push({ role: 'user', content: text, time: t });
+  localStorage.setItem('chatHistory', JSON.stringify(chatHistoryData));
 
   isLoading = true;
   const sendBtn = document.getElementById('send-btn');
@@ -248,7 +248,7 @@ async function sendMessage() {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    query: history[history.length - 1].content,
+    query: chatHistoryData[chatHistoryData.length - 1].content,
     context: typeof CASE_CONTEXT !== 'undefined' ? CASE_CONTEXT : ''
   })
 });
@@ -275,8 +275,8 @@ async function sendMessage() {
       
       const replyTime = now();
       appendMsg('assistant', formatResponse(reply), replyTime);
-      history.push({ role: 'assistant', content: reply, time: replyTime });
-      sessionStorage.setItem('chatHistory', JSON.stringify(history));
+      chatHistoryData.push({ role: 'assistant', content: reply, time: replyTime });
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistoryData));
     }
   } catch (err) {
     removeTyping();
