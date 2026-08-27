@@ -320,41 +320,6 @@ async function sendMessage() {
   }
 }
 
-// ── OLD INDEX.HTML LOGIC (Preserved just in case) ──
-const views = ['analyze','similar','history','tips'];
-const topbarTitles = { analyze:'Analyze RTI Document', similar:'Similar Cases (RAG Search)', history:'My Analysis History', tips:'RTI Guidelines & Tips' };
-const topbarBadges = { analyze:'Powered by ML + RAG', similar:'Semantic similarity search', history:'12 analyses this month', tips:'RTI Act 2005' };
-
-function switchView(v) {
-  views.forEach(id => {
-    const el = document.getElementById('view-'+id);
-    if(el) el.classList.toggle('active', id===v);
-  });
-  document.querySelectorAll('.nav-item').forEach((el,i) => {
-    if(el.getAttribute('onclick')) {
-      el.classList.toggle('active', el.getAttribute('onclick').includes("'"+v+"'"));
-    }
-  });
-  const tTitle = document.getElementById('topbar-title');
-  if(tTitle) tTitle.textContent = topbarTitles[v];
-  const tBadge = document.getElementById('topbar-badge');
-  if(tBadge) tBadge.textContent = topbarBadges[v];
-}
-
-const tabs = ['upload','paste','results'];
-function switchTab(t) {
-  tabs.forEach(id => {
-    const el = document.getElementById('tab-'+id);
-    if(el) el.style.display = (id===t) ? 'block' : 'none';
-  });
-  document.querySelectorAll('.tab').forEach((el,i) => {
-    if(el.getAttribute('onclick')) {
-      el.classList.toggle('active', el.getAttribute('onclick').includes("'"+t+"'"));
-    }
-  });
-}
-
-function goResults() { switchTab('results'); }
 
 document.addEventListener('DOMContentLoaded', () => {
   const ta = document.getElementById('rti-input');
