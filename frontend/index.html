@@ -273,6 +273,34 @@
 
   // --- NEW LOGIC FOR BACKEND INTEGRATION ---
 
+  // Drag and Drop for Upload Zone
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropZone = document.getElementById('upload-zone-ui');
+    if (dropZone) {
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, preventDefaults, false);
+      });
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, () => dropZone.classList.add('drag-active'), false);
+      });
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, () => dropZone.classList.remove('drag-active'), false);
+      });
+      dropZone.addEventListener('drop', (e) => {
+        let dt = e.dataTransfer;
+        let files = dt.files;
+        if (files.length) {
+          document.getElementById('file-upload').files = files;
+          handleFileUpload({ target: { files: files } });
+        }
+      }, false);
+    }
+  });
+
   async function handleFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
