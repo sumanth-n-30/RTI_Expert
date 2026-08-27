@@ -1,32 +1,8 @@
 // ── CHAT LOGIC ──
 
-const CASE_CONTEXT = `
-CASE DOCUMENT: MGNREGS_RTI_2024.pdf
+let CASE_CONTEXT = "";
 
-EXTRACTED RTI QUERY:
-"I request information regarding the list of beneficiaries enrolled under the MGNREGS scheme in Gram Panchayat Kotagiri, Nilgiris district, Tamil Nadu, for financial year 2023–24. Specifically: (a) Names and job card numbers of all registered beneficiaries, (b) Number of days worked per beneficiary, (c) Wages paid, mode of payment, and any pending dues."
-
-ML PREDICTION: Accepted (78% confidence)
-REJECTION RISK SCORE: 22%
-
-IDENTIFIED REJECTION RISKS:
-1. Request for individual names alongside financial data may trigger Section 8(1)(j) exemption (personal information).
-2. Broad scope — "all registered beneficiaries" without a count cap risks a voluminous-request rejection.
-3. Jurisdiction must be the district MGNREGS office PIO, not the state level.
-
-EXTRACTED TAGS: Public record, Government scheme, Contains personal names (risk)
-
-SIMILAR CASES RETRIEVED (12 total, avg 67% accepted):
-- RTI/TN/2023/04872: MGNREGS wage records, Coimbatore — Partially accepted; aggregate data given, names exempted under 8(1)(j). 96% match.
-- RTI/TN/2022/09134: Job card names, Tirunelveli — Rejected (personal info). Revised aggregate query succeeded. 88% match.
-- RTI/KA/2023/11290: Pending dues, ward-wise GP — Fully accepted in 15 days. 81% match.
-- RTI/MH/2023/06671: All MGNREGS records, Nashik — Voluminous rejection; appeal with narrowed scope succeeded. 74% match.
-
-AI-IMPROVED DRAFT (generated):
-Removed individual names and job card numbers; replaced with ward-wise aggregate beneficiary count. Changed "number of days per beneficiary" to category-wise aggregate. Added ward-total for pending dues. Addressed to District Programme Coordinator, MGNREGS, Nilgiris.
-`;
-
-const SYSTEM_PROMPT = `You are a helpful assistant assisting Indian citizens with their Right to Information (RTI) queries. You provide guidance on how to better structure applications under the RTI Act, 2005.
+let SYSTEM_PROMPT = `You are a helpful assistant assisting Indian citizens with their Right to Information (RTI) queries. You provide guidance on how to better structure applications under the RTI Act, 2005.
 
 You have been provided with context about a specific RTI query. Use this to provide friendly, clear, and easy-to-understand advice. Avoid overly complex legal jargon.
 
@@ -34,10 +10,7 @@ Focus on being helpful. If the user asks how to change their query, provide a si
 
 Stay focused on RTI topics like drafting, timelines, and common reasons why requests might be sent back.
 
-Keep responses concise and structured. Use bullet points or numbered lists when listing multiple points. Bold key terms. Format well for a chat UI.
-
-CASE CONTEXT:
-${CASE_CONTEXT}`;
+Keep responses concise and structured. Use bullet points or numbered lists when listing multiple points. Bold key terms. Format well for a chat UI.`;
 
 let history = [];
 let isLoading = false;
