@@ -83,7 +83,7 @@ def ask_ollama(prompt: str, model: str = None) -> str:
     response = requests.post(
         f"{OLLAMA_URL}/api/generate",
         json={"model": model, "prompt": prompt, "stream": False},
-        timeout=60
+        timeout=180
     )
     response.raise_for_status()
     return response.json().get("response", "").strip()
@@ -328,7 +328,96 @@ def retrain():
         return jsonify({"status": "retrained successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route("/api/similar_cases", methods=["POST"])
+def similar_cases():
+    body = request.get_json(silent=True)
+    if not body or "query" not in body:
+        return jsonify({"error": "Missing 'query'"}), 400
     
+    query = str(body["query"]).strip()
+    if not query:
+        return jsonify({"error": "Query cannot be empty."}), 400
+        
+    try:
+        cases = db.search_cases(query, top_k=5)
+        return jsonify({"cases": cases}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/analyze_fast", methods=["POST"])
+def analyze_fast():
+    body = request.get_json(silent=True)
+    if not body or "query" not in body:
+        return jsonify({"error": "Missing 'query'"}), 400
+        
+    query = str(body["query"]).strip()
+    if not query:
+        return jsonify({"error": "Query cannot be empty."}), 400
+        
+    try:
+        # 1. Get ML Prediction (Fast)
+        result = analyze_with_sklearn(query)
+        
+        # 2. Get Similar Cases (Fast)
+        cases = db.search_cases(query, top_k=3)
+                
+        return jsonify({
+            "prediction": result["prediction"],
+            "confidence": result["confidence"],
+            "cases": cases
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/generate_draft", methods=["POST"])
+def generate_draft():
+    body = request.get_json(silent=True)
+    if not body or "query" not in body:
+        return jsonify({"error": "Missing 'query'"}), 400
+        
+    query = str(body["query"]).strip()
+    try:
+        insights = ""
+        improved_draft = ""
+        if ollama_is_running():
+            insights = ask_ollama(f"Briefly list 2-3 reasons why this RTI query might be rejected:\n\n{query}")
+            improved_draft = ask_ollama(f"Rewrite this RTI application to be more specific, professional, and less likely to be rejected. Return only the rewritten text.\n\nOriginal:\n{query}")
+            
+        return jsonify({
+            "insights": insights,
+            "improved_draft": improved_draft
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+import PyPDF2
+import io
+
+@app.route("/api/upload", methods=["POST"])
+def upload_file():
+    if "file" not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    
+    file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"error": "No selected file"}), 400
+        
+    try:
+        text = ""
+        if file.filename.lower().endswith('.pdf'):
+            reader = PyPDF2.PdfReader(file)
+            for page in reader.pages:
+                extracted = page.extract_text()
+                if extracted:
+                    text += extracted + "\n"
+        else:
+            text = file.read().decode("utf-8")
+            
+        return jsonify({"text": text.strip()}), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to parse file: {str(e)}"}), 500
+
 @app.route("/chat", methods=["POST"])
 def chat():
     body = request.get_json(silent=True)
@@ -338,76 +427,37 @@ def chat():
 
     query = body["query"].strip()
     q = query.lower()
+    
+    context = body.get("context", "")
 
     # ── 1. FAST RULE-BASED INTENT (NO LLM) ──
     if q in ["hi", "hello", "hey"]:
-        return jsonify({"reply": "Hey 👋 I'm your RTI assistant."})
+        return jsonify({"reply": "Hey 👋 I'm your RTI assistant. How can I help you with your case today?"})
 
     if q in ["bye", "goodbye"]:
         return jsonify({"reply": "Goodbye 👋"})
 
-    if len(q.split()) < 3:
-        return jsonify({"reply": "Please provide a proper RTI query."})
-
-    # ── 2. ANALYSIS (FAST) ──
-    result = smart_analyze(query)
-
-    # ── 3. ONLY ONE LLM CALL (OPTIONAL) ──
-    # Retrieve similar past cases from Vector DB
+    # ── 2. ASK AI ADVISOR ──
     try:
-        similar_cases = db.search_cases(query, top_k=2)
-        context = "Relevant Past Cases:\n"
-        if similar_cases:
-            for case in similar_cases:
-                context += f"- Case Query: {case['query']}\n  Decision: {case['metadata'].get('decision')}\n"
-        else:
-            context += "None found.\n"
-    except Exception as e:
-        print(f"[RAG Error] {e}")
-        context = "Relevant Past Cases: Error retrieving cases.\n"
+        if not ollama_is_running():
+            return jsonify({"reply": "I'm sorry, my AI brain (Ollama) is currently offline, so I cannot answer your question right now."})
+            
+        system_prompt = f"""
+You are a helpful and professional assistant assisting Indian citizens with their Right to Information (RTI) queries. 
+You provide guidance on how to better structure applications under the RTI Act, 2005.
 
-    explanation = ask_ollama(
-    f"""
-You are a helpful assistant. Explain ONLY in 2-3 lines why the following RTI query might be accepted or rejected based on common rules.
-
+Here is the context of the user's current RTI document and our model's analysis:
 {context}
 
-Do NOT assume context like education or teaching unless given.
-
-RTI Query:
-{query}
-
-Prediction: {result['prediction']}
+Please answer the user's question directly based on this context. Be friendly, clear, and easy-to-understand. 
+Keep your response concise and structured. Use bullet points if necessary.
 """
-)
-
-    if result["source"] == "ollama":
-        try:
-            # Conversational explanation with a helpful persona
-            explanation = ask_ollama(
-                f"""
-                You are a helpful assistant. Explain simply in 2-3 lines why the following RTI query might be accepted or rejected based on common rules.
-                
-                {context}
-
-                RTI Query:
-                {query}
-
-                Prediction: {result['prediction']}
-                """
-            )
-        except:
-            pass
-
-    # ── 4. FINAL RESPONSE ──
-    reply = explanation
-
-    return jsonify({
-        "reply": reply,
-        "prediction": result["prediction"],
-        "confidence": result["confidence"],
-        "risk_level": result["risk_level"]
-    })
+        reply = ask_ollama(f"{system_prompt}\n\nUSER QUESTION:\n{query}")
+        
+        return jsonify({"reply": reply})
+    except Exception as e:
+        print(f"[Chat Error] {e}")
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     print("\n" + "="*55)

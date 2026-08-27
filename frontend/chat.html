@@ -174,40 +174,34 @@
 
       <div class="case-card">
         <div class="case-card-title"><i class="ti ti-file-text" aria-hidden="true"></i> Document</div>
-        <div style="font-size:13px;font-weight:500;margin-bottom:3px;"></div>
-        <div style="font-size:11.5px;color:var(--text-3);">Uploaded today · 2.1 KB</div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:3px;" id="side-doc-title">Active RTI Request</div>
+        <div style="font-size:11.5px;color:var(--text-3);" id="side-doc-meta">Pasted Text</div>
       </div>
 
       <div class="case-card">
         <div class="case-card-title"><i class="ti ti-chart-pie" aria-hidden="true"></i> ML prediction</div>
         <div class="verdict-row">
-          <div class="verdict-pill accept"><i class="ti ti-check" aria-hidden="true"></i> Accepted</div>
-          <div class="conf-text">78% confidence</div>
+          <div class="verdict-pill accept" id="side-pred-badge"><i class="ti ti-check" aria-hidden="true"></i> Accepted</div>
+          <div class="conf-text" id="side-conf-text">78% confidence</div>
         </div>
-        <div class="conf-bar"><div class="conf-fill"></div></div>
+        <div class="conf-bar"><div class="conf-fill" id="side-conf-fill"></div></div>
       </div>
 
       <div class="case-card">
         <div class="case-card-title"><i class="ti ti-text-scan-2" aria-hidden="true"></i> Extracted query</div>
-        <div class="query-box">Context about the RTI query.</div>
-        <div style="margin-top:10px;">
-          <span class="tag tag-ok">Public record</span>
-          <span class="tag tag-warn">Names → risk</span>
-          <span class="tag tag-info">Govt scheme</span>
-        </div>
+        <div class="query-box" id="side-query-box">Context about the RTI query.</div>
       </div>
 
       <div class="case-card">
         <div class="case-card-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Rejection risks</div>
-        <div class="risk-item"><div class="risk-dot"></div>Personal names may trigger Sec 8(1)(j)</div>
-        <div class="risk-item"><div class="risk-dot"></div>Broad scope — no record count cap</div>
-        <div class="risk-item"><div class="risk-dot"></div>Jurisdiction must be district MGNREGS office</div>
+        <div id="side-insights-box">
+          <div class="risk-item"><div class="risk-dot"></div>Loading insights...</div>
+        </div>
       </div>
 
       <div class="case-card">
         <div class="case-card-title"><i class="ti ti-layers-intersect" aria-hidden="true"></i> Similar cases found</div>
-        <div style="font-size:13px;font-weight:500;">12 cases retrieved</div>
-        <div style="font-size:11.5px;color:var(--text-3);margin-top:2px;">Avg outcome: 67% accepted</div>
+        <div style="font-size:13px;font-weight:500;" id="side-cases-count">12 cases retrieved</div>
       </div>
     </div>
   </aside>

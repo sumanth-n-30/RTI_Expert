@@ -5,3 +5,4 @@ flask-cors>=4.0.0
 requests
 chromadb
 sentence-transformers
+PyPDF2

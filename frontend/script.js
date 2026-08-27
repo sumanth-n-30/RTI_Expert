@@ -42,6 +42,78 @@ ${CASE_CONTEXT}`;
 let history = [];
 let isLoading = false;
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Load dynamic context into the chat sidebar if it exists
+  const storedData = localStorage.getItem('active_rti');
+  if (storedData && document.getElementById('side-doc-title')) {
+    try {
+      const data = JSON.parse(storedData);
+      
+      document.getElementById('side-doc-title').textContent = "Pasted Document";
+      document.getElementById('side-doc-meta').textContent = new Date().toLocaleDateString();
+      
+      const isAccept = data.prediction && data.prediction.toLowerCase() === 'accepted';
+      const badge = document.getElementById('side-pred-badge');
+      if (badge) {
+        badge.className = 'verdict-pill ' + (isAccept ? 'accept' : 'reject');
+        badge.innerHTML = `<i class="ti ${isAccept ? 'ti-check' : 'ti-x'}" aria-hidden="true"></i> ${data.prediction || 'Unknown'}`;
+      }
+      
+      const confText = document.getElementById('side-conf-text');
+      if (confText) confText.textContent = (data.confidence || 0) + '% confidence';
+      
+      const fill = document.getElementById('side-conf-fill');
+      if (fill) {
+        fill.style.width = (data.confidence || 0) + '%';
+        fill.style.background = isAccept ? 'var(--color-success)' : 'var(--color-danger)';
+      }
+      
+      const queryBox = document.getElementById('side-query-box');
+      if (queryBox && data.query) {
+        queryBox.textContent = data.query.length > 200 ? data.query.substring(0, 200) + '...' : data.query;
+      }
+      
+      const insightsBox = document.getElementById('side-insights-box');
+      if (insightsBox) {
+        if (data.insights && data.insights.length > 0) {
+          insightsBox.innerHTML = data.insights.map(i => `<div class="risk-item"><div class="risk-dot"></div>${i}</div>`).join('');
+        } else {
+          insightsBox.innerHTML = '<div class="risk-item" style="color:var(--text-3);"><div class="risk-dot"></div>No major risks found</div>';
+        }
+      }
+      
+      const casesCount = document.getElementById('side-cases-count');
+      if (casesCount) casesCount.textContent = (data.casesCount || 0) + ' cases retrieved';
+    } catch (e) {
+      console.error("Failed to parse active RTI data:", e);
+    }
+  }
+
+  // Update CASE_CONTEXT dynamically
+  if (storedData) {
+    try {
+      const data = JSON.parse(storedData);
+      CASE_CONTEXT = `
+EXTRACTED RTI QUERY:
+"${data.query || ''}"
+
+ML PREDICTION: ${data.prediction || 'Unknown'} (${data.confidence || 0}% confidence)
+
+IDENTIFIED REJECTION RISKS:
+${data.insights && data.insights.length ? data.insights.join('\\n') : 'None'}
+
+AI-IMPROVED DRAFT (generated):
+${data.draft || 'Not generated yet'}
+`;
+    } catch(e) {}
+  }
+
+  const ta = document.getElementById('chat-input');
+  if(ta) {
+    ta.focus();
+  }
+});
+
 function now() {
   return new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
 }
@@ -180,7 +252,8 @@ async function sendMessage() {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    query: history[history.length - 1].content
+    query: history[history.length - 1].content,
+    context: typeof CASE_CONTEXT !== 'undefined' ? CASE_CONTEXT : ''
   })
 });
 
