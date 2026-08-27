@@ -81,6 +81,28 @@ ${data.draft || 'Not generated yet'}
     } catch(e) {}
   }
 
+  // Restore chat history from sessionStorage
+  const savedHistory = sessionStorage.getItem('chatHistory');
+  if (savedHistory) {
+    try {
+      history = JSON.parse(savedHistory);
+      if (history.length > 0) {
+        const suggestions = document.getElementById('suggestions');
+        if (suggestions) suggestions.style.display = 'none';
+        
+        history.forEach(msg => {
+          if (msg.role === 'user') {
+            appendMsg('user', msg.content.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), msg.time || now());
+          } else {
+            appendMsg('assistant', formatResponse(msg.content), msg.time || now());
+          }
+        });
+      }
+    } catch (e) {
+      console.error("Failed to restore chat history:", e);
+    }
+  }
+
   const ta = document.getElementById('chat-input');
   if(ta) {
     ta.focus();
@@ -211,7 +233,8 @@ async function sendMessage() {
   const t = now();
   appendMsg('user', text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), t);
 
-  history.push({ role: 'user', content: text });
+  history.push({ role: 'user', content: text, time: t });
+  sessionStorage.setItem('chatHistory', JSON.stringify(history));
 
   isLoading = true;
   const sendBtn = document.getElementById('send-btn');
@@ -249,18 +272,20 @@ async function sendMessage() {
       } else {
         reply = "Error: Received an invalid response format from the AI server.";
       }
-
-      history.push({ role: 'assistant', content: reply });
-      appendMsg('assistant', formatResponse(reply), now());
+      
+      const replyTime = now();
+      appendMsg('assistant', formatResponse(reply), replyTime);
+      history.push({ role: 'assistant', content: reply, time: replyTime });
+      sessionStorage.setItem('chatHistory', JSON.stringify(history));
     }
   } catch (err) {
     removeTyping();
-    appendMsg('assistant', `<div class="error-bubble">Network error: ${err.message}</div>`, now());
+    appendMsg('assistant', `<div class="error-bubble">Connection failed. Is the API running?</div>`, now());
+  } finally {
+    isLoading = false;
+    if(sendBtn) sendBtn.disabled = false;
+    input.focus();
   }
-
-  isLoading = false;
-  if(sendBtn) sendBtn.disabled = false;
-  document.getElementById('chat-input').focus();
 }
 
 // ── OLD INDEX.HTML LOGIC (Preserved just in case) ──
