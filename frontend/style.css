@@ -493,3 +493,10 @@ body { font-family: var(--font-sans); background: var(--color-background-seconda
 .chat-page ::-webkit-scrollbar { width: 5px; }
 .chat-page ::-webkit-scrollbar-track { background: transparent; }
 .chat-page ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 3px; }
+
+/* Typing Indicator Animation */
+.typing-indicator { display: flex; align-items: center; gap: 4px; padding: 12px 16px; min-height: 40px; }
+.typing-dot { width: 6px; height: 6px; background-color: var(--color-primary); border-radius: 50%; animation: typingBounce 1.4s infinite ease-in-out both; }
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+@keyframes typingBounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
