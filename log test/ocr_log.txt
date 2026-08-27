@@ -1,0 +1,275 @@
+2026-02-23 01:42:17,230 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.1-App-Rohan-Bhate.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,230 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.1-App-Rohan-Bhate.pdf
+2026-02-23 01:42:17,230 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.1-Reply-Rohan-Bhate.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,230 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.1-Reply-Rohan-Bhate.pdf
+2026-02-23 01:42:17,230 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.10-App-Santosh-50013.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,230 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.10-App-Santosh-50013.pdf
+2026-02-23 01:42:17,246 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.10-Reply-Santosh-50013.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,246 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.10-Reply-Santosh-50013.pdf
+2026-02-23 01:42:17,246 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.11-App-Santosh-50014.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,247 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.11-App-Santosh-50014.pdf
+2026-02-23 01:42:17,247 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.11-Reply-Santosh-50014.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,247 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.11-Reply-Santosh-50014.pdf
+2026-02-23 01:42:17,247 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.12-App-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,248 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.12-App-Pratibha-Dongre.pdf
+2026-02-23 01:42:17,249 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.13-App-Balbir-Singh-Chauhan-80018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,249 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.13-App-Balbir-Singh-Chauhan-80018.pdf
+2026-02-23 01:42:17,249 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.13-Reply-Balbir-Singh-Chauhan-80018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,250 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.13-Reply-Balbir-Singh-Chauhan-80018.pdf
+2026-02-23 01:42:17,250 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.14-and-15-App-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,250 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.14-and-15-App-Pratibha-Dongre.pdf
+2026-02-23 01:42:17,250 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.14-and-15-reply-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,251 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.14-and-15-reply-Pratibha-Dongre.pdf
+2026-02-23 01:42:17,251 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.16-App-Balbir-Singh-Chauhan-80017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,251 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.16-App-Balbir-Singh-Chauhan-80017.pdf
+2026-02-23 01:42:17,251 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.16-Reply-Balbir-Singh-Chauhan-80017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,252 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.16-Reply-Balbir-Singh-Chauhan-80017.pdf
+2026-02-23 01:42:17,252 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.17-App-Debadityo-Sinha-50015.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,252 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.17-App-Debadityo-Sinha-50015.pdf
+2026-02-23 01:42:17,252 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.17-Reply-Debadityo-Sinha-50015.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,252 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.17-Reply-Debadityo-Sinha-50015.pdf
+2026-02-23 01:42:17,252 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.2-App-Sangeeta-Dogra.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,252 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.2-App-Sangeeta-Dogra.pdf
+2026-02-23 01:42:17,252 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.3-App-Saravana-Ganesh.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,252 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.3-App-Saravana-Ganesh.pdf
+2026-02-23 01:42:17,252 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.3-Reply-Saravana-Ganesh.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.3-Reply-Saravana-Ganesh.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.4-App-Durga-Shankar-Meghwal.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.4-App-Durga-Shankar-Meghwal.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.4-Reply-Durga-Shankar-Meghwal.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.4-Reply-Durga-Shankar-Meghwal.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.5-App-Neeraj-Gupta.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.5-App-Neeraj-Gupta.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.6-App-Neeraj-Gupta.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.6-App-Neeraj-Gupta.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.6-Reply-Neeraj-Gupta.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.6-Reply-Neeraj-Gupta.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.7-App-Anchit-Jain.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.7-App-Anchit-Jain.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.7-Reply-Anchit-Jain.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.7-Reply-Anchit-Jain.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.8-App-Prateek-Kashyap.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.8-App-Prateek-Kashyap.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.8-Reply-Prateek-Kashyap.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.8-Reply-Prateek-Kashyap.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.9-App-B-Barathi-50012.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.9-App-B-Barathi-50012.pdf
+2026-02-23 01:42:17,254 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.9-Reply-B-Barathi-50012.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,254 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.9-Reply-B-Barathi-50012.pdf
+2026-02-23 01:42:17,260 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.18-App-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,261 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.18-App-Pratibha-Dongre.pdf
+2026-02-23 01:42:17,261 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.18-Reply-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,261 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.18-Reply-Pratibha-Dongre.pdf
+2026-02-23 01:42:17,261 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.19-App-Umesh-Kumar-Tripathi.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,261 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.19-App-Umesh-Kumar-Tripathi.pdf
+2026-02-23 01:42:17,262 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.19-Reply-Umesh-Kumar-Tripathi.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,262 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.19-Reply-Umesh-Kumar-Tripathi.pdf
+2026-02-23 01:42:17,262 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.20-App-Ashish-Garg-50016.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,262 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.20-App-Ashish-Garg-50016.pdf
+2026-02-23 01:42:17,262 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.20-Reply-Ashish-Garg-50016.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,262 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.20-Reply-Ashish-Garg-50016.pdf
+2026-02-23 01:42:17,263 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.21-App-Harish-Eknath-Sutar.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,263 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.21-App-Harish-Eknath-Sutar.pdf
+2026-02-23 01:42:17,263 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.22-App-Rohit-Jha-50017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,264 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.22-App-Rohit-Jha-50017.pdf
+2026-02-23 01:42:17,264 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.22-Reply-Rohit-Jha-50017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,264 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.22-Reply-Rohit-Jha-50017.pdf
+2026-02-23 01:42:17,265 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.23-App-Gaurav-Kumar-Meena-50018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,265 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.23-App-Gaurav-Kumar-Meena-50018.pdf
+2026-02-23 01:42:17,265 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.23-Reply-Gaurav-Kumar-Meena-50018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,265 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.23-Reply-Gaurav-Kumar-Meena-50018.pdf
+2026-02-23 01:42:17,266 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.24-App-Gracious-James-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,266 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.24-App-Gracious-James-50019.pdf
+2026-02-23 01:42:17,266 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.24-Reply-Gracious-James-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,267 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.24-Reply-Gracious-James-50019.pdf
+2026-02-23 01:42:17,267 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.25-App-Ishan-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,267 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.25-App-Ishan-50019.pdf
+2026-02-23 01:42:17,267 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.25-Reply-Ishan-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,268 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.25-Reply-Ishan-50019.pdf
+2026-02-23 01:42:17,268 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.26-App-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,268 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.26-App-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf
+2026-02-23 01:42:17,268 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.26-Reply-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,269 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.26-Reply-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf
+2026-02-23 01:42:17,269 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.30-App-Nirpen-Teron-50023.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,269 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.30-App-Nirpen-Teron-50023.pdf
+2026-02-23 01:42:17,269 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.30-Reply-Nirpen-Teron-50023.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,270 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.30-Reply-Nirpen-Teron-50023.pdf
+2026-02-23 01:42:17,270 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.31-App-Pramod-Kalita-50024.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,270 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.31-App-Pramod-Kalita-50024.pdf
+2026-02-23 01:42:17,271 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.31-Reply-Pramod-Kalita-50024.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,271 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.31-Reply-Pramod-Kalita-50024.pdf
+2026-02-23 01:42:17,271 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.32-App-Nimisha-Agarwal-50025.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,272 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.32-App-Nimisha-Agarwal-50025.pdf
+2026-02-23 01:42:17,272 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.32-Reply-Nimisha-Agarwal-50025-1.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,272 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.32-Reply-Nimisha-Agarwal-50025-1.pdf
+2026-02-23 01:42:17,273 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.33-App-Prashant-Upadhyay-50026.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,273 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.33-App-Prashant-Upadhyay-50026.pdf
+2026-02-23 01:42:17,274 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.33-Reply-Prashant-Upadhyay-50026.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,274 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.33-Reply-Prashant-Upadhyay-50026.pdf
+2026-02-23 01:42:17,274 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.34-App-Kanika-Sood-90002.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:17,274 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.34-App-Kanika-Sood-90002.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.1-App-Rohan-Bhate.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.1-App-Rohan-Bhate.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.1-Reply-Rohan-Bhate.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.1-Reply-Rohan-Bhate.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.10-App-Santosh-50013.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.10-App-Santosh-50013.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.10-Reply-Santosh-50013.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.10-Reply-Santosh-50013.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.11-App-Santosh-50014.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.11-App-Santosh-50014.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.11-Reply-Santosh-50014.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.11-Reply-Santosh-50014.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.12-App-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.12-App-Pratibha-Dongre.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.13-App-Balbir-Singh-Chauhan-80018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,283 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.13-App-Balbir-Singh-Chauhan-80018.pdf
+2026-02-23 01:42:49,283 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.13-Reply-Balbir-Singh-Chauhan-80018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,293 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.13-Reply-Balbir-Singh-Chauhan-80018.pdf
+2026-02-23 01:42:49,293 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.14-and-15-App-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,293 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.14-and-15-App-Pratibha-Dongre.pdf
+2026-02-23 01:42:49,293 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.14-and-15-reply-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,294 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.14-and-15-reply-Pratibha-Dongre.pdf
+2026-02-23 01:42:49,294 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.16-App-Balbir-Singh-Chauhan-80017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,294 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.16-App-Balbir-Singh-Chauhan-80017.pdf
+2026-02-23 01:42:49,294 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.16-Reply-Balbir-Singh-Chauhan-80017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,294 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.16-Reply-Balbir-Singh-Chauhan-80017.pdf
+2026-02-23 01:42:49,295 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.17-App-Debadityo-Sinha-50015.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,296 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.17-App-Debadityo-Sinha-50015.pdf
+2026-02-23 01:42:49,296 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.17-Reply-Debadityo-Sinha-50015.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.17-Reply-Debadityo-Sinha-50015.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.2-App-Sangeeta-Dogra.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.2-App-Sangeeta-Dogra.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.3-App-Saravana-Ganesh.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.3-App-Saravana-Ganesh.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.3-Reply-Saravana-Ganesh.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.3-Reply-Saravana-Ganesh.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.4-App-Durga-Shankar-Meghwal.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.4-App-Durga-Shankar-Meghwal.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.4-Reply-Durga-Shankar-Meghwal.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.4-Reply-Durga-Shankar-Meghwal.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.5-App-Neeraj-Gupta.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.5-App-Neeraj-Gupta.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.6-App-Neeraj-Gupta.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.6-App-Neeraj-Gupta.pdf
+2026-02-23 01:42:49,297 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.6-Reply-Neeraj-Gupta.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,297 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.6-Reply-Neeraj-Gupta.pdf
+2026-02-23 01:42:49,303 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.7-App-Anchit-Jain.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,303 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.7-App-Anchit-Jain.pdf
+2026-02-23 01:42:49,303 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.7-Reply-Anchit-Jain.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,303 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.7-Reply-Anchit-Jain.pdf
+2026-02-23 01:42:49,304 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.8-App-Prateek-Kashyap.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,304 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.8-App-Prateek-Kashyap.pdf
+2026-02-23 01:42:49,304 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.8-Reply-Prateek-Kashyap.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,304 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.8-Reply-Prateek-Kashyap.pdf
+2026-02-23 01:42:49,304 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.9-App-B-Barathi-50012.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,305 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.9-App-B-Barathi-50012.pdf
+2026-02-23 01:42:49,305 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-1-RTI-No.9-Reply-B-Barathi-50012.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,305 - WARNING - Skipped due to error: 2019-20-Qtr-1-RTI-No.9-Reply-B-Barathi-50012.pdf
+2026-02-23 01:42:49,305 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.18-App-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,305 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.18-App-Pratibha-Dongre.pdf
+2026-02-23 01:42:49,306 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.18-Reply-Pratibha-Dongre.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,306 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.18-Reply-Pratibha-Dongre.pdf
+2026-02-23 01:42:49,306 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.19-App-Umesh-Kumar-Tripathi.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,306 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.19-App-Umesh-Kumar-Tripathi.pdf
+2026-02-23 01:42:49,306 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.19-Reply-Umesh-Kumar-Tripathi.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,307 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.19-Reply-Umesh-Kumar-Tripathi.pdf
+2026-02-23 01:42:49,307 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.20-App-Ashish-Garg-50016.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,307 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.20-App-Ashish-Garg-50016.pdf
+2026-02-23 01:42:49,307 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.20-Reply-Ashish-Garg-50016.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,307 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.20-Reply-Ashish-Garg-50016.pdf
+2026-02-23 01:42:49,307 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.21-App-Harish-Eknath-Sutar.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,307 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.21-App-Harish-Eknath-Sutar.pdf
+2026-02-23 01:42:49,309 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.22-App-Rohit-Jha-50017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,309 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.22-App-Rohit-Jha-50017.pdf
+2026-02-23 01:42:49,309 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.22-Reply-Rohit-Jha-50017.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,309 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.22-Reply-Rohit-Jha-50017.pdf
+2026-02-23 01:42:49,310 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.23-App-Gaurav-Kumar-Meena-50018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,310 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.23-App-Gaurav-Kumar-Meena-50018.pdf
+2026-02-23 01:42:49,310 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.23-Reply-Gaurav-Kumar-Meena-50018.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,310 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.23-Reply-Gaurav-Kumar-Meena-50018.pdf
+2026-02-23 01:42:49,311 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.24-App-Gracious-James-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,311 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.24-App-Gracious-James-50019.pdf
+2026-02-23 01:42:49,311 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.24-Reply-Gracious-James-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,311 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.24-Reply-Gracious-James-50019.pdf
+2026-02-23 01:42:49,311 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.25-App-Ishan-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,312 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.25-App-Ishan-50019.pdf
+2026-02-23 01:42:49,312 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.25-Reply-Ishan-50019.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,312 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.25-Reply-Ishan-50019.pdf
+2026-02-23 01:42:49,313 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.26-App-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,313 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.26-App-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf
+2026-02-23 01:42:49,313 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.26-Reply-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,313 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.26-Reply-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.30-App-Nirpen-Teron-50023.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.30-App-Nirpen-Teron-50023.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.30-Reply-Nirpen-Teron-50023.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.30-Reply-Nirpen-Teron-50023.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.31-App-Pramod-Kalita-50024.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.31-App-Pramod-Kalita-50024.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.31-Reply-Pramod-Kalita-50024.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.31-Reply-Pramod-Kalita-50024.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.32-App-Nimisha-Agarwal-50025.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.32-App-Nimisha-Agarwal-50025.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.32-Reply-Nimisha-Agarwal-50025-1.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.32-Reply-Nimisha-Agarwal-50025-1.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.33-App-Prashant-Upadhyay-50026.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.33-App-Prashant-Upadhyay-50026.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.33-Reply-Prashant-Upadhyay-50026.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.33-Reply-Prashant-Upadhyay-50026.pdf
+2026-02-23 01:42:49,314 - ERROR - OCR failed for D:\MAJOR PROJECT\test1.1\raw test\2019-20-Qtr-2-RTI-No.34-App-Kanika-Sood-90002.pdf: name 'POPPLER_PATH' is not defined
+2026-02-23 01:42:49,314 - WARNING - Skipped due to error: 2019-20-Qtr-2-RTI-No.34-App-Kanika-Sood-90002.pdf
+2026-02-23 01:47:39,405 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.1-App-Rohan-Bhate.pdf
+2026-02-23 01:50:26,604 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.1-Reply-Rohan-Bhate.pdf
+2026-02-23 01:50:36,272 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.10-App-Santosh-50013.pdf
+2026-02-23 01:50:39,644 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.10-Reply-Santosh-50013.pdf
+2026-02-23 01:50:45,007 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.11-App-Santosh-50014.pdf
+2026-02-23 01:50:48,581 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.11-Reply-Santosh-50014.pdf
+2026-02-23 01:52:47,389 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.12-App-Pratibha-Dongre.pdf
+2026-02-23 01:53:23,491 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.13-App-Balbir-Singh-Chauhan-80018.pdf
+2026-02-23 01:53:31,636 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.13-Reply-Balbir-Singh-Chauhan-80018.pdf
+2026-02-23 01:55:29,351 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.14-and-15-App-Pratibha-Dongre.pdf
+2026-02-23 01:55:46,902 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.14-and-15-reply-Pratibha-Dongre.pdf
+2026-02-23 01:56:29,240 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.16-App-Balbir-Singh-Chauhan-80017.pdf
+2026-02-23 01:56:37,375 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.16-Reply-Balbir-Singh-Chauhan-80017.pdf
+2026-02-23 01:56:52,748 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.17-App-Debadityo-Sinha-50015.pdf
+2026-02-23 02:00:43,057 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.17-Reply-Debadityo-Sinha-50015.pdf
+2026-02-23 02:00:58,765 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.2-App-Sangeeta-Dogra.pdf
+2026-02-23 02:01:04,377 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.3-App-Saravana-Ganesh.pdf
+2026-02-23 02:01:07,534 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.3-Reply-Saravana-Ganesh.pdf
+2026-02-23 02:01:23,743 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.4-App-Durga-Shankar-Meghwal.pdf
+2026-02-23 02:01:28,244 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.4-Reply-Durga-Shankar-Meghwal.pdf
+2026-02-23 02:01:32,807 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.5-App-Neeraj-Gupta.pdf
+2026-02-23 02:01:36,895 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.6-App-Neeraj-Gupta.pdf
+2026-02-23 02:01:46,765 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.6-Reply-Neeraj-Gupta.pdf
+2026-02-23 02:01:53,666 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.7-App-Anchit-Jain.pdf
+2026-02-23 02:01:56,790 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.7-Reply-Anchit-Jain.pdf
+2026-02-23 02:02:02,427 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.8-App-Prateek-Kashyap.pdf
+2026-02-23 02:02:06,510 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.8-Reply-Prateek-Kashyap.pdf
+2026-02-23 02:02:15,344 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.9-App-B-Barathi-50012.pdf
+2026-02-23 02:02:27,174 - INFO - Processed successfully: 2019-20-Qtr-1-RTI-No.9-Reply-B-Barathi-50012.pdf
+2026-02-23 02:04:36,188 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.18-App-Pratibha-Dongre.pdf
+2026-02-23 02:04:50,321 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.18-Reply-Pratibha-Dongre.pdf
+2026-02-23 02:04:58,401 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.19-App-Umesh-Kumar-Tripathi.pdf
+2026-02-23 02:06:32,741 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.19-Reply-Umesh-Kumar-Tripathi.pdf
+2026-02-23 02:06:37,992 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.20-App-Ashish-Garg-50016.pdf
+2026-02-23 02:06:43,863 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.20-Reply-Ashish-Garg-50016.pdf
+2026-02-23 02:06:50,960 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.21-App-Harish-Eknath-Sutar.pdf
+2026-02-23 02:07:10,971 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.22-App-Rohit-Jha-50017.pdf
+2026-02-23 02:08:13,194 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.22-Reply-Rohit-Jha-50017.pdf
+2026-02-23 02:08:18,600 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.23-App-Gaurav-Kumar-Meena-50018.pdf
+2026-02-23 02:08:24,868 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.23-Reply-Gaurav-Kumar-Meena-50018.pdf
+2026-02-23 02:08:36,399 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.24-App-Gracious-James-50019.pdf
+2026-02-23 02:08:44,394 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.24-Reply-Gracious-James-50019.pdf
+2026-02-23 02:08:49,334 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.25-App-Ishan-50019.pdf
+2026-02-23 02:08:52,351 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.25-Reply-Ishan-50019.pdf
+2026-02-23 02:08:57,686 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.26-App-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf
+2026-02-23 02:09:03,575 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.26-Reply-Ishankumar-Kamlesh-Bhai-Patel-50020.pdf
+2026-02-23 02:09:07,783 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.30-App-Nirpen-Teron-50023.pdf
+2026-02-23 02:09:20,534 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.30-Reply-Nirpen-Teron-50023.pdf
+2026-02-23 02:09:25,359 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.31-App-Pramod-Kalita-50024.pdf
+2026-02-23 10:00:51,219 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.31-Reply-Pramod-Kalita-50024.pdf
+2026-02-23 10:00:58,033 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.32-App-Nimisha-Agarwal-50025.pdf
+2026-02-23 10:01:04,748 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.32-Reply-Nimisha-Agarwal-50025-1.pdf
+2026-02-23 10:01:10,388 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.33-App-Prashant-Upadhyay-50026.pdf
+2026-02-23 10:01:17,248 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.33-Reply-Prashant-Upadhyay-50026.pdf
+2026-02-23 10:01:35,958 - INFO - Processed successfully: 2019-20-Qtr-2-RTI-No.34-App-Kanika-Sood-90002.pdf

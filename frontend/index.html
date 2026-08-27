@@ -1,0 +1,363 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">
+        <div class="logo-icon"><i class="ti ti-scale" aria-hidden="true"></i></div>
+        <div>
+          <div class="logo-text">RTI Expert</div>
+          <div class="logo-sub">AI Analysis System</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-section">Analyse</div>
+      <div class="nav-item active" onclick="switchView('analyze')">
+        <i class="ti ti-file-search" aria-hidden="true"></i> Analyze RTI
+      </div>
+      <div class="nav-item" onclick="switchView('similar')">
+        <i class="ti ti-layers-intersect" aria-hidden="true"></i> Similar Cases
+      </div>
+      <div class="nav-item" onclick="window.location.href='chat.html'">
+        <i class="ti ti-messages" aria-hidden="true"></i> Case Chat
+      </div>
+      <div class="nav-section">Workspace</div>
+      <div class="nav-item" onclick="switchView('history')">
+        <i class="ti ti-history" aria-hidden="true"></i> My History
+      </div>
+      <div class="nav-item" onclick="switchView('tips')">
+        <i class="ti ti-bulb" aria-hidden="true"></i> RTI Guidelines
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="status-pill"><div class="dot"></div> AI Model active</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <span class="topbar-title" id="topbar-title">Analyze RTI Document</span>
+    </div>
+
+    <div class="content">
+
+      <!-- ANALYZE VIEW -->
+      <div class="view active" id="view-analyze">
+        <div class="tab-row">
+          <div class="tab active" onclick="switchTab('upload')">Upload Document</div>
+          <div class="tab" onclick="switchTab('paste')">Paste Text</div>
+          <div class="tab" onclick="switchTab('results')">Results</div>
+        </div>
+
+        <div id="tab-upload">
+          <div class="upload-zone" onclick="goResults()">
+            <div class="upload-icon"><i class="ti ti-cloud-upload" aria-hidden="true"></i></div>
+            <div class="upload-title">Drop your RTI document here</div>
+            <div class="upload-sub">or click to browse files</div>
+            <div class="format-pills">
+              <span class="format-pill">PDF</span>
+              <span class="format-pill">TXT</span>
+              <span class="format-pill">JPG/PNG</span>
+              <span class="format-pill">DOCX</span>
+            </div>
+          </div>
+
+          <div class="divider-row"><div class="divider-line"></div><div class="divider-text">or try a sample</div><div class="divider-line"></div></div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn" onclick="goResults()"><i class="ti ti-file-text" aria-hidden="true"></i> Sample: MGNREGS Query</button>
+            <button class="btn" onclick="goResults()"><i class="ti ti-file-text" aria-hidden="true"></i> Sample: PDS Beneficiary</button>
+            <button class="btn" onclick="goResults()"><i class="ti ti-file-text" aria-hidden="true"></i> Sample: Land Record</button>
+          </div>
+        </div>
+
+        <div id="tab-paste" style="display:none;">
+          <div class="textarea-card">
+            <div class="textarea-label">Paste your RTI application text</div>
+            <textarea rows="9" id="rti-input" placeholder="Paste your RTI application or query here. Include the full text for best results…"></textarea>
+            <div class="textarea-footer">
+              <span class="char-count" id="char-count">0 characters</span>
+              <button class="btn btn-primary" onclick="goResults()"><i class="ti ti-wand" aria-hidden="true"></i> Analyze RTI</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-results" style="display:none;">
+          <div class="breadcrumb">
+            <i class="ti ti-file-text" aria-hidden="true"></i> MGNREGS_RTI_2024.pdf
+            <i class="ti ti-chevron-right" aria-hidden="true"></i> Analysis
+          </div>
+
+          <div class="grid-3">
+            <div class="metric-card">
+              <div class="metric-label">PREDICTION</div>
+              <div class="metric-value" style="color:var(--color-success-dark);">Accepted</div>
+              <div class="metric-sub">High confidence</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">CONFIDENCE</div>
+              <div class="metric-value">78%</div>
+              <div class="metric-sub">ML model score</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">SIMILAR CASES</div>
+              <div class="metric-value">12</div>
+              <div class="metric-sub">retrieved via RAG</div>
+            </div>
+          </div>
+
+          <!-- Verdict Card -->
+          <div class="card">
+            <div class="card-title"><i class="ti ti-chart-pie" aria-hidden="true"></i> Prediction Result</div>
+            <div class="verdict-badge accept"><i class="ti ti-check" aria-hidden="true"></i> Likely Accepted</div>
+            <div class="verdict-bar">
+              <div class="verdict-accept" style="width:78%"></div>
+              <div class="verdict-reject" style="width:22%"></div>
+            </div>
+            <div class="verdict-labels">
+              <span class="label-accept">Accept probability — 78%</span>
+              <span class="label-reject">Reject risk — 22%</span>
+            </div>
+          </div>
+
+          <!-- Extracted Query -->
+          <div class="card">
+            <div class="card-title"><i class="ti ti-text-scan-2" aria-hidden="true"></i> Extracted RTI Query</div>
+            <div class="query-block">
+              I request information regarding the list of beneficiaries enrolled under the MGNREGS scheme in Gram Panchayat Kotagiri, Nilgiris district, Tamil Nadu, for financial year 2023–24. Specifically: (a) Names and job card numbers of all registered beneficiaries, (b) Number of days worked per beneficiary, (c) Wages paid, mode of payment, and any pending dues.
+            </div>
+            <div style="margin-top:12px;">
+              <span class="tag tag-info">Public record</span>
+              <span class="tag tag-info">Government scheme</span>
+              <span class="tag tag-warn">Contains names</span>
+            </div>
+          </div>
+
+          <!-- Rejection Insights -->
+          <div class="card">
+            <div class="card-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Potential Rejection Risks</div>
+            <div class="insight-item">
+              <div class="insight-num">1</div>
+              <div class="insight-text"><strong>Request for personal names</strong> — Seeking individual names alongside financial data may trigger exemption under Section 8(1)(j) of the RTI Act (personal information). Consider requesting aggregate data or anonymized records instead.</div>
+            </div>
+            <div class="insight-item">
+              <div class="insight-num">2</div>
+              <div class="insight-text"><strong>Broad scope</strong> — Asking for "all registered beneficiaries" without a specific count cap can lead to a voluminous-request rejection. Adding a time-bound or ward-level filter improves success rate.</div>
+            </div>
+            <div class="insight-item">
+              <div class="insight-num">3</div>
+              <div class="insight-text"><strong>Jurisdiction clarity</strong> — Ensure the application is addressed to the correct PIO at the district MGNREGS office, not a state-level authority, to avoid a jurisdictional transfer.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <button class="btn btn-primary" onclick="switchTab('results'); document.getElementById('draft-section').scrollIntoView({behavior:'smooth'})"><i class="ti ti-pencil-plus" aria-hidden="true"></i> Generate Improved Draft</button>
+            <button class="btn" onclick="switchView('similar')"><i class="ti ti-layers-intersect" aria-hidden="true"></i> View Similar Cases</button>
+            <button class="btn btn-primary" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark)); border:none; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);" onclick="window.location.href='chat.html'"><i class="ti ti-messages" aria-hidden="true"></i> Ask AI Advisor</button>
+          </div>
+
+          <!-- Improved Draft -->
+          <div class="card" id="draft-section">
+            <div class="card-title"><i class="ti ti-sparkles" aria-hidden="true"></i> AI-Improved RTI Draft</div>
+            <div class="draft-block">
+              <p>To,<br>The Public Information Officer,<br>District Programme Coordinator, MGNREGS,<br>Nilgiris District, Tamil Nadu.</p>
+              <p>Subject: Request for information under the Right to Information Act, 2005 — MGNREGS implementation in Kotagiri Gram Panchayat (FY 2023–24)</p>
+              <p>I, the undersigned, hereby request the following information pertaining to Gram Panchayat Kotagiri, Nilgiris district, for Financial Year 2023–24:</p>
+              <p>(a) <span class="diff-add">Total number of job cards issued</span> and the ward-wise breakdown of active beneficiaries, <span class="diff-remove">including individual names and job card numbers</span>;<br>
+              (b) <span class="diff-add">Category-wise aggregate</span> of number of days worked per beneficiary group;<br>
+              (c) Total wages disbursed, payment mode (cash/DBT), and <span class="diff-add">ward-total</span> of any pending dues as on 31 March 2024.</p>
+              <p>The information may be provided in the form of a certified register extract or official report.</p>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px;">
+              <button class="btn"><i class="ti ti-copy" aria-hidden="true"></i> Copy draft</button>
+              <button class="btn"><i class="ti ti-download" aria-hidden="true"></i> Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMILAR CASES VIEW -->
+      <div class="view" id="view-similar">
+        <div class="search-bar">
+          <input type="text" placeholder="Describe your RTI topic to find similar past cases…" value="MGNREGS wage payment records Gram Panchayat" />
+          <button class="btn btn-primary"><i class="ti ti-search" aria-hidden="true"></i> Search</button>
+        </div>
+
+        <div class="section-head"><div class="section-title">12 similar cases found</div></div>
+
+        <div class="similar-case">
+          <div class="case-head">
+            <div>
+              <div class="case-id">RTI/TN/2023/04872</div>
+              <div class="case-title">MGNREGS wage disbursement, Coimbatore district</div>
+            </div>
+            <span class="sim-score">96% match</span>
+          </div>
+          <div class="case-excerpt">Application sought wage payment records for FY 2022–23. Partially accepted — aggregate financial data provided; individual names exempted under Sec 8(1)(j). PIO responded within 28 days.</div>
+          <div style="margin-top:10px;"><span class="tag tag-info">Accepted (partial)</span><span class="tag tag-info">Wage records</span></div>
+        </div>
+
+        <div class="similar-case">
+          <div class="case-head">
+            <div>
+              <div class="case-id">RTI/TN/2022/09134</div>
+              <div class="case-title">Job card issuance irregularities, Tirunelveli</div>
+            </div>
+            <span class="sim-score">88% match</span>
+          </div>
+          <div class="case-excerpt">Requested names of ghost beneficiaries. Rejected — deemed personal information. Appellate authority upheld rejection. Revised query asking for "number of cancelled job cards" succeeded.</div>
+          <div style="margin-top:10px;"><span class="tag tag-danger">Rejected</span><span class="tag tag-info">Job cards</span><span class="tag tag-warn">Personal data risk</span></div>
+        </div>
+
+        <div class="similar-case">
+          <div class="case-head">
+            <div>
+              <div class="case-id">RTI/KA/2023/11290</div>
+              <div class="case-title">MGNREGS pending dues, Karnataka GP level</div>
+            </div>
+            <span class="sim-score">81% match</span>
+          </div>
+          <div class="case-excerpt">Asked for ward-wise pending wage dues. Fully accepted. PIO provided a certified copy of the MIS report within 15 days. Good reference for scope and wording.</div>
+          <div style="margin-top:10px;"><span class="tag tag-info">Accepted</span><span class="tag tag-info">Pending dues</span></div>
+        </div>
+
+        <div class="similar-case">
+          <div class="case-head">
+            <div>
+              <div class="case-id">RTI/MH/2023/06671</div>
+              <div class="case-title">MGNREGS FY records, Nashik block</div>
+            </div>
+            <span class="sim-score">74% match</span>
+          </div>
+          <div class="case-excerpt">Voluminous request for all beneficiary records led to initial rejection. First appeal succeeded after narrowing the scope to one financial year and one panchayat.</div>
+          <div style="margin-top:10px;"><span class="tag tag-warn">Initially rejected</span><span class="tag tag-info">Scope issue</span></div>
+        </div>
+      </div>
+
+      <!-- HISTORY VIEW -->
+      <div class="view" id="view-history">
+        <div style="margin-bottom:16px;">
+          <input type="text" placeholder="Search my analyses…" style="width:100%;padding:9px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);font-size:13.5px;color:var(--color-text-primary);font-family:var(--font-sans);outline:none;" />
+        </div>
+        <div class="section-head"><div class="section-title">Recent analyses</div></div>
+
+        <div class="history-row">
+          <div class="history-icon accept"><i class="ti ti-check" aria-hidden="true"></i></div>
+          <div class="history-meta">
+            <div class="history-title">MGNREGS wage records — Nilgiris GP</div>
+            <div class="history-date">Today, 10:42 AM · MGNREGS_RTI_2024.pdf</div>
+          </div>
+          <div class="history-verdict accept">Accepted (78%)</div>
+        </div>
+
+        <div class="history-row">
+          <div class="history-icon reject"><i class="ti ti-x" aria-hidden="true"></i></div>
+          <div class="history-meta">
+            <div class="history-title">Police FIR copy request — Chennai district</div>
+            <div class="history-date">Yesterday, 3:17 PM · Pasted text</div>
+          </div>
+          <div class="history-verdict reject">Rejected (71%)</div>
+        </div>
+
+        <div class="history-row">
+          <div class="history-icon accept"><i class="ti ti-check" aria-hidden="true"></i></div>
+          <div class="history-meta">
+            <div class="history-title">PDS ration card allocation — Erode block</div>
+            <div class="history-date">12 Apr 2025 · PDS_RTI_Erode.pdf</div>
+          </div>
+          <div class="history-verdict accept">Accepted (84%)</div>
+        </div>
+
+        <div class="history-row">
+          <div class="history-icon reject"><i class="ti ti-x" aria-hidden="true"></i></div>
+          <div class="history-meta">
+            <div class="history-title">PM housing scheme beneficiary list</div>
+            <div class="history-date">8 Apr 2025 · Pasted text</div>
+          </div>
+          <div class="history-verdict reject">Rejected (66%)</div>
+        </div>
+      </div>
+
+      <!-- TIPS VIEW -->
+      <div class="view" id="view-tips">
+        <div class="card" style="margin-bottom:20px;">
+          <div class="card-title"><i class="ti ti-certificate" aria-hidden="true"></i> Key RTI Act provisions to know</div>
+          <div class="insight-item">
+            <div class="insight-num" style="background:var(--color-success-light);color:var(--color-success-dark);">§3</div>
+            <div class="insight-text"><strong>Right to information</strong> — Every citizen has the right to request information from a public authority. The PIO must respond within 30 days (48 hours for life/liberty matters).</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num" style="background:var(--color-danger-light);color:var(--color-danger-dark);">§8</div>
+            <div class="insight-text"><strong>Exemptions</strong> — Information affecting sovereignty, privacy (personal info), trade secrets, cabinet deliberations, and ongoing investigations may be withheld.</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num" style="background:var(--color-warning-light);color:var(--color-warning-dark);">§19</div>
+            <div class="insight-text"><strong>Appeals</strong> — First appeal lies with the First Appellate Authority within 30 days of rejection. Second appeal goes to the Central/State Information Commission.</div>
+          </div>
+        </div>
+
+        <div class="section-head"><div class="section-title">Tips for stronger RTI applications</div></div>
+        <div class="tips-grid">
+          <div class="tip-item">
+            <div class="tip-icon teal"><i class="ti ti-target" aria-hidden="true"></i></div>
+            <div class="tip-text"><strong>Be specific</strong>Ask for documents, records, or data — not opinions or reasons.</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon amber"><i class="ti ti-users" aria-hidden="true"></i></div>
+            <div class="tip-text"><strong>Avoid personal names</strong>Request aggregate or anonymized data to bypass Section 8(1)(j).</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon blue"><i class="ti ti-calendar" aria-hidden="true"></i></div>
+            <div class="tip-text"><strong>Narrow the time range</strong>Limit to one financial year or quarter to prevent voluminous-request rejection.</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon red"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+            <div class="tip-text"><strong>Address the right PIO</strong>Confirm the correct public authority before filing — wrong address causes transfer delays.</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon teal"><i class="ti ti-file-certificate" aria-hidden="true"></i></div>
+            <div class="tip-text"><strong>Ask for certified copies</strong>Phrasing as "certified copies of records" carries more legal weight than "information about".</div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-icon amber"><i class="ti ti-receipt" aria-hidden="true"></i></div>
+            <div class="tip-text"><strong>Attach fee proof</strong>₹10 application fee (IPO/DD/online). BPL applicants are exempt — attach BPL card copy.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const views = ['analyze','similar','history','tips'];
+  const topbarTitles = { analyze:'Analyze RTI Document', similar:'Similar Cases (RAG Search)', history:'My Analysis History', tips:'RTI Guidelines & Tips' };
+  const topbarBadges = { analyze:'Powered by ML + RAG', similar:'Semantic similarity search', history:'12 analyses this month', tips:'RTI Act 2005' };
+
+  function switchView(v) {
+    views.forEach(id => {
+      document.getElementById('view-'+id).classList.toggle('active', id===v);
+    });
+    document.querySelectorAll('.nav-item').forEach((el,i) => el.classList.toggle('active', el.getAttribute('onclick') && el.getAttribute('onclick').includes("'"+v+"'")));
+    document.getElementById('topbar-title').textContent = topbarTitles[v];
+    document.getElementById('topbar-badge').textContent = topbarBadges[v];
+  }
+
+  const tabs = ['upload','paste','results'];
+  function switchTab(t) {
+    tabs.forEach(id => {
+      const el = document.getElementById('tab-'+id);
+      if(el) el.style.display = (id===t) ? 'block' : 'none';
+    });
+    document.querySelectorAll('.tab').forEach((el,i) => el.classList.toggle('active', el.getAttribute('onclick') && el.getAttribute('onclick').includes("'"+t+"'")));
+  }
+
+  function goResults() { switchTab('results'); }
+
+  const ta = document.getElementById('rti-input');
+  const cc = document.getElementById('char-count');
+  if(ta && cc) ta.addEventListener('input', () => cc.textContent = ta.value.length + ' characters');
+</script>

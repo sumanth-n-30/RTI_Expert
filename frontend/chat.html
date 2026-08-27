@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RTI Expert — Case Chat</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  :root {
+    --primary: #4f8ef7;
+    --bg-dark: #0d0f14;
+    --bg-sidebar: #111318;
+    --bg-card: #1a1d24;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.08);
+    --bubble-user: #2563eb;
+    --bubble-ai: #1e293b;
+  }
+
+  body.chat-page {
+    background: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    height: 100vh;
+  }
+
+  .layout {
+    display: flex;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 320px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-dark);
+    position: relative;
+  }
+
+  .chat-header {
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13, 15, 20, 0.8);
+    backdrop-filter: blur(12px);
+  }
+
+  .messages {
+    flex: 1;
+    padding: 40px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+  }
+
+  /* Centering message thread like GPT */
+  .msg {
+    max-width: 850px;
+    width: 90%;
+    margin: 0 auto 24px;
+    display: flex;
+    gap: 16px;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .msg.user {
+    flex-direction: row-reverse;
+  }
+
+  .bubble {
+    padding: 14px 20px;
+    border-radius: 20px;
+    line-height: 1.6;
+    font-size: 15px;
+    max-width: 75%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .user .bubble {
+    background: var(--bubble-user);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  .assistant .bubble {
+    background: var(--bubble-ai);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 4px;
+  }
+
+  .input-bar {
+    padding: 20px 0 40px;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .input-row {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .input-row:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  }
+
+  #chat-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    flex: 1;
+  }
+
+  .suggestion-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 99px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+
+  .suggestion-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="chat-page">
+<div class="layout">
+
+  <!-- SIDEBAR: Case Context -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark"><i class="ti ti-scale" aria-hidden="true"></i></div>
+      <div>
+        <div class="logo-text">RTI Expert</div>
+        <div class="logo-sub">Case Chat</div>
+      </div>
+    </div>
+
+    <div class="case-panel">
+      <div class="case-label">Active case</div>
+
+      <div class="case-card">
+        <div class="case-card-title"><i class="ti ti-file-text" aria-hidden="true"></i> Document</div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:3px;"></div>
+        <div style="font-size:11.5px;color:var(--text-3);">Uploaded today · 2.1 KB</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card-title"><i class="ti ti-chart-pie" aria-hidden="true"></i> ML prediction</div>
+        <div class="verdict-row">
+          <div class="verdict-pill accept"><i class="ti ti-check" aria-hidden="true"></i> Accepted</div>
+          <div class="conf-text">78% confidence</div>
+        </div>
+        <div class="conf-bar"><div class="conf-fill"></div></div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card-title"><i class="ti ti-text-scan-2" aria-hidden="true"></i> Extracted query</div>
+        <div class="query-box">Context about the RTI query.</div>
+        <div style="margin-top:10px;">
+          <span class="tag tag-ok">Public record</span>
+          <span class="tag tag-warn">Names → risk</span>
+          <span class="tag tag-info">Govt scheme</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Rejection risks</div>
+        <div class="risk-item"><div class="risk-dot"></div>Personal names may trigger Sec 8(1)(j)</div>
+        <div class="risk-item"><div class="risk-dot"></div>Broad scope — no record count cap</div>
+        <div class="risk-item"><div class="risk-dot"></div>Jurisdiction must be district MGNREGS office</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card-title"><i class="ti ti-layers-intersect" aria-hidden="true"></i> Similar cases found</div>
+        <div style="font-size:13px;font-weight:500;">12 cases retrieved</div>
+        <div style="font-size:11.5px;color:var(--text-3);margin-top:2px;">Avg outcome: 67% accepted</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CHAT PANEL -->
+  <div class="chat-area">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="avatar"><i class="ti ti-robot" aria-hidden="true"></i></div>
+        <div>
+          <div class="chat-title">RTI Advisor</div>
+          <div class="chat-sub">Ask anything about your case</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-3);">
+        <div class="status-dot"></div> AI ready
+      </div>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="empty-chat" id="empty-state">
+        <i class="ti ti-messages" aria-hidden="true"></i>
+        <h3>Chat about your RTI case</h3>
+        <p>Ask about rejection risks, how to improve your draft, appeal options, or what similar cases decided.</p>
+      </div>
+    </div>
+
+    <div class="suggestions" id="suggestions">
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">Why might this be rejected?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">How do I improve my draft?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">What does Section 8(1)(j) mean here?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">Who is the correct PIO to address?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">What happens if this gets rejected?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">Show me a cleaner version of the query</button>
+    </div>
+
+    <div class="input-bar">
+      <div class="input-row">
+        <textarea id="chat-input" rows="1" placeholder="Ask about your RTI case…" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="send-btn" onclick="sendMessage()" aria-label="Send message">
+          <i class="ti ti-send" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="input-hint">AI advice is informational only — consult a legal professional for official guidance.</div>
+    </div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
