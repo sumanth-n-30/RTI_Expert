@@ -81,7 +81,15 @@ ${data.draft || 'Not generated yet'}
     } catch(e) {}
   }
 
-  // Restore chat history from localStorage
+  // Session-based chat: clear old chats when browser reopens
+  // sessionStorage survives page navigation but clears on browser close
+  if (!sessionStorage.getItem('chatSessionActive')) {
+    // New browser session — clear any stale chat history
+    localStorage.removeItem('chatHistory');
+    sessionStorage.setItem('chatSessionActive', 'true');
+  }
+
+  // Restore chat history only for current session
   const savedHistory = localStorage.getItem('chatHistory');
   if (savedHistory) {
     try {
@@ -108,6 +116,21 @@ ${data.draft || 'Not generated yet'}
     ta.focus();
   }
 });
+
+function clearChat() {
+  chatHistoryData = [];
+  localStorage.removeItem('chatHistory');
+  const container = document.getElementById('messages');
+  if (container) container.innerHTML = `
+    <div class="empty-chat" id="empty-state">
+      <i class="ti ti-messages" aria-hidden="true"></i>
+      <h3>Chat about your RTI case</h3>
+      <p>Ask about rejection risks, how to improve your draft, appeal options, or what similar cases decided.</p>
+    </div>
+  `;
+  const suggestions = document.getElementById('suggestions');
+  if (suggestions) suggestions.style.display = '';
+}
 
 function now() {
   return new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
