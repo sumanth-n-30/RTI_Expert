@@ -15,8 +15,7 @@ Keep responses concise and structured. Use bullet points or numbered lists when 
 let chatHistoryData = [];
 let isLoading = false;
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Load dynamic context into the chat sidebar if it exists
+function loadChatContext() {
   const storedData = localStorage.getItem('active_rti');
   if (storedData && document.getElementById('side-doc-title')) {
     try {
@@ -29,16 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const badge = document.getElementById('side-pred-badge');
       if (badge) {
         badge.className = 'verdict-pill ' + (isAccept ? 'accept' : 'reject');
+        // keep inline styles but update colors
+        if(isAccept) {
+           badge.style.background = 'rgba(22,163,74,0.15)';
+           badge.style.color = '#4ade80';
+        } else {
+           badge.style.background = 'rgba(239,68,68,0.15)';
+           badge.style.color = '#f87171';
+        }
         badge.innerHTML = `<i class="ti ${isAccept ? 'ti-check' : 'ti-x'}" aria-hidden="true"></i> ${data.prediction || 'Unknown'}`;
       }
       
       const confText = document.getElementById('side-conf-text');
-      if (confText) confText.textContent = (data.confidence || 0) + '% confidence';
+      if (confText) confText.textContent = (data.confidence || 0) + '% conf';
       
       const fill = document.getElementById('side-conf-fill');
       if (fill) {
         fill.style.width = (data.confidence || 0) + '%';
-        fill.style.background = isAccept ? 'var(--color-success)' : 'var(--color-danger)';
+        fill.style.background = isAccept ? '#4ade80' : '#f87171';
       }
       
       const queryBox = document.getElementById('side-query-box');
@@ -49,14 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const insightsBox = document.getElementById('side-insights-box');
       if (insightsBox) {
         if (data.insights && data.insights.length > 0) {
-          insightsBox.innerHTML = data.insights.map(i => `<div class="risk-item"><div class="risk-dot"></div>${i}</div>`).join('');
+          insightsBox.innerHTML = data.insights.map(i => `<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:12.5px; color:var(--text-main); line-height:1.4;"><div style="width:6px; height:6px; background:#ef4444; border-radius:50%; flex-shrink:0; margin-top:6px;"></div>${i}</div>`).join('');
         } else {
-          insightsBox.innerHTML = '<div class="risk-item" style="color:var(--text-3);"><div class="risk-dot"></div>No major risks found</div>';
+          insightsBox.innerHTML = '<div style="color:var(--text-3); font-size:12.5px;">No major risks found</div>';
         }
       }
-      
-      const casesCount = document.getElementById('side-cases-count');
-      if (casesCount) casesCount.textContent = (data.casesCount || 0) + ' cases retrieved';
     } catch (e) {
       console.error("Failed to parse active RTI data:", e);
     }
@@ -80,6 +84,11 @@ ${data.draft || 'Not generated yet'}
 `;
     } catch(e) {}
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Load dynamic context into the chat sidebar if it exists
+  loadChatContext();
 
   // Session-based chat: clear old chats when browser reopens
   // sessionStorage survives page navigation but clears on browser close

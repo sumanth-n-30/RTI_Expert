@@ -20,7 +20,7 @@
       <div class="nav-item" onclick="switchView('similar')">
         <i class="ti ti-layers-intersect" aria-hidden="true"></i> Similar Cases
       </div>
-      <div class="nav-item" onclick="window.location.href='chat.html'">
+      <div class="nav-item" onclick="switchView('chat')">
         <i class="ti ti-messages" aria-hidden="true"></i> Case Chat
       </div>
       <div class="nav-section">Workspace</div>
@@ -37,12 +37,12 @@
     </div>
   </aside>
 
-  <div class="main">
-    <div class="topbar">
+  <div class="main" id="main-area">
+    <div class="topbar" id="main-topbar">
       <span class="topbar-title" id="topbar-title">Analyze RTI Document</span>
     </div>
 
-    <div class="content">
+    <div class="content" id="main-content">
 
       <!-- ANALYZE VIEW -->
       <div class="view active" id="view-analyze">
@@ -143,7 +143,7 @@
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
             <button class="btn btn-primary" onclick="switchTab('results'); document.getElementById('draft-section').scrollIntoView({behavior:'smooth'})"><i class="ti ti-pencil-plus" aria-hidden="true"></i> Generate Improved Draft</button>
             <button class="btn" onclick="switchView('similar')"><i class="ti ti-layers-intersect" aria-hidden="true"></i> View Similar Cases</button>
-            <button class="btn btn-primary" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark)); border:none; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);" onclick="window.location.href='chat.html'"><i class="ti ti-messages" aria-hidden="true"></i> Ask AI Advisor</button>
+            <button class="btn btn-primary" style="flex:2; justify-content:center;" onclick="switchView('chat')"><i class="ti ti-messages" aria-hidden="true"></i> Discuss in Chat</button>
           </div>
 
           <!-- Improved Draft -->
@@ -235,21 +235,130 @@
 
     </div>
   </div>
+
+  <!-- CHAT VIEW (SPA) -->
+  <div class="view-chat" id="view-chat" style="display: none; height: 100vh; flex: 1; flex-direction: row; background: var(--bg-dark);">
+    <!-- SIDEBAR: Case Context -->
+    <aside class="chat-context-sidebar">
+      <div class="sidebar-header" style="border-bottom: 1px solid var(--chat-border); padding: 14px 24px; display: flex; align-items: center; gap: 12px; background: rgba(13,15,20,0.8); backdrop-filter: blur(12px);">
+        <div class="logo-mark"><i class="ti ti-scale" aria-hidden="true" style="color:white;"></i></div>
+        <div>
+          <div style="font-weight:700; color:white; font-size:15px;">RTI Expert</div>
+          <div style="color:var(--chat-text-muted); font-size:12px;">Case Chat</div>
+        </div>
+      </div>
+
+      <div class="case-panel" style="padding: 20px;">
+        <div style="font-size:11px; text-transform:uppercase; font-weight:700; color:var(--chat-text-muted); letter-spacing:0.05em; margin-bottom:12px;">Active case</div>
+
+        <div class="chat-case-card">
+          <div class="chat-case-card-title"><i class="ti ti-file-text" aria-hidden="true"></i> Document</div>
+          <div style="font-size:13px;font-weight:500;margin-bottom:3px;color:white;" id="side-doc-title">Active RTI Request</div>
+          <div style="font-size:11.5px;color:var(--chat-text-muted);" id="side-doc-meta">Pasted Text</div>
+        </div>
+
+        <div class="chat-case-card">
+          <div class="chat-case-card-title"><i class="ti ti-chart-pie" aria-hidden="true"></i> ML prediction</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div class="verdict-pill accept" id="side-pred-badge" style="background:rgba(22,163,74,0.15); color:#4ade80; padding:4px 10px; border-radius:99px; font-size:12px; font-weight:600;"><i class="ti ti-check" aria-hidden="true"></i> Accepted</div>
+            <div style="font-size:12px; font-weight:600; color:var(--chat-text-muted);" id="side-conf-text">78% conf</div>
+          </div>
+          <div style="height:6px; background:rgba(255,255,255,0.05); border-radius:99px; overflow:hidden;"><div style="height:100%; background:#4ade80; border-radius:99px;" id="side-conf-fill"></div></div>
+        </div>
+
+        <div class="chat-case-card">
+          <div class="chat-case-card-title"><i class="ti ti-text-scan-2" aria-hidden="true"></i> Extracted query</div>
+          <div style="background:rgba(0,0,0,0.2); padding:10px; border-radius:8px; font-size:12px; color:var(--chat-text-muted); line-height:1.5; border:1px solid var(--chat-border);" id="side-query-box">Context about the RTI query.</div>
+        </div>
+
+        <div class="chat-case-card">
+          <div class="chat-case-card-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Rejection risks</div>
+          <div id="side-insights-box">
+            <div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size:12.5px; color:var(--text-main); line-height:1.4;"><div style="width:6px; height:6px; background:#ef4444; border-radius:50%; flex-shrink:0; margin-top:6px;"></div>Loading insights...</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CHAT PANEL -->
+    <div class="chat-area">
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div class="avatar"><i class="ti ti-robot" aria-hidden="true"></i></div>
+          <div>
+            <div class="chat-title">RTI Advisor</div>
+            <div class="chat-sub">Ask anything about your case</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-3);">
+            <div class="status-dot"></div> AI ready
+          </div>
+          <button onclick="clearChat()" style="background:transparent;border:1px solid var(--chat-border);color:var(--chat-text-muted);padding:6px 14px;border-radius:99px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:5px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">
+            <i class="ti ti-refresh" aria-hidden="true"></i> New Chat
+          </button>
+        </div>
+      </div>
+
+      <div class="messages" id="messages">
+        <div class="empty-chat" id="empty-state">
+          <i class="ti ti-messages" aria-hidden="true"></i>
+          <h3>Chat about your RTI case</h3>
+          <p>Ask about rejection risks, how to improve your draft, appeal options, or what similar cases decided.</p>
+        </div>
+      </div>
+
+      <div class="suggestions" id="suggestions">
+        <button class="suggestion-btn" onclick="sendSuggestion(this)">Why might this be rejected?</button>
+        <button class="suggestion-btn" onclick="sendSuggestion(this)">How do I improve my draft?</button>
+        <button class="suggestion-btn" onclick="sendSuggestion(this)">What does Section 8(1)(j) mean here?</button>
+        <button class="suggestion-btn" onclick="sendSuggestion(this)">Who is the correct PIO to address?</button>
+        <button class="suggestion-btn" onclick="sendSuggestion(this)">What happens if this gets rejected?</button>
+        <button class="suggestion-btn" onclick="sendSuggestion(this)">Show me a cleaner version of the query</button>
+      </div>
+
+      <div class="input-bar">
+        <div class="input-row">
+          <textarea id="chat-input" rows="1" placeholder="Ask about your RTI case…" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+          <button class="send-btn" id="send-btn" onclick="sendMessage()" aria-label="Send message">
+            <i class="ti ti-send" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="input-hint">AI advice is informational only — consult a legal professional for official guidance.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-  const views = ['analyze','similar','history','tips'];
-  const topbarTitles = { analyze:'Analyze RTI Document', similar:'Similar Cases (RAG Search)', history:'My Analysis History', tips:'RTI Guidelines & Tips' };
-  const topbarBadges = { analyze:'Powered by ML + RAG', similar:'Semantic similarity search', history:'Recent analyses', tips:'RTI Act 2005' };
+  const views = ['analyze','similar','history','tips','chat'];
+  const topbarTitles = { analyze:'Analyze RTI Document', similar:'Similar Cases (RAG Search)', history:'My Analysis History', tips:'RTI Guidelines & Tips', chat:'Case Chat' };
+  const topbarBadges = { analyze:'Powered by ML + RAG', similar:'Semantic similarity search', history:'Recent analyses', tips:'RTI Act 2005', chat:'AI Assistant' };
 
   function switchView(v) {
     views.forEach(id => {
-      document.getElementById('view-'+id).classList.toggle('active', id===v);
+      const el = document.getElementById('view-'+id);
+      if (el) el.classList.toggle('active', id===v);
     });
+    
+    // Toggle main area vs chat view
+    const mainArea = document.getElementById('main-area');
+    const chatView = document.getElementById('view-chat');
+    if (v === 'chat') {
+      mainArea.style.display = 'none';
+      chatView.style.display = 'flex';
+    } else {
+      mainArea.style.display = 'flex'; // `.main` has display:flex in style.css
+      chatView.style.display = 'none';
+    }
+    
     document.querySelectorAll('.nav-item').forEach((el,i) => {
       if(el.getAttribute('onclick')) el.classList.toggle('active', el.getAttribute('onclick').includes("'"+v+"'"));
     });
-    document.getElementById('topbar-title').textContent = topbarTitles[v];
+    
+    if (document.getElementById('topbar-title')) {
+      document.getElementById('topbar-title').textContent = topbarTitles[v];
+    }
     
     if (v === 'history') {
       loadHistory();
@@ -391,6 +500,7 @@
         draft: ''
       };
       localStorage.setItem('active_rti', JSON.stringify(activeData));
+      if (typeof loadChatContext === 'function') loadChatContext();
 
       // Now fetch the slow Ollama generation in the background without blocking the UI
       fetch('http://127.0.0.1:5000/api/generate_draft', {
@@ -406,6 +516,7 @@
         activeData.insights = draftData.insights ? draftData.insights.split('\n').filter(l => l.trim()) : [];
         activeData.draft = draftData.improved_draft || '';
         localStorage.setItem('active_rti', JSON.stringify(activeData));
+        if (typeof loadChatContext === 'function') loadChatContext();
         
         // Update AI Insights
         if (draftData.insights) {
