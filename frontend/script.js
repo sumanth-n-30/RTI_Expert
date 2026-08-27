@@ -12,7 +12,7 @@ Stay focused on RTI topics like drafting, timelines, and common reasons why requ
 
 Keep responses concise and structured. Use bullet points or numbered lists when listing multiple points. Bold key terms. Format well for a chat UI.`;
 
-let history = [];
+let chatHistoryData = [];
 let isLoading = false;
 
 document.addEventListener('DOMContentLoaded', () => {
