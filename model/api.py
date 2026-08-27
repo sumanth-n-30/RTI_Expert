@@ -41,7 +41,7 @@ DATASET_PATH = os.path.join(BASE_DIR, "dataset.json")
 
 # ── Ollama config ──────────────────────────────────────────────────────────────
 OLLAMA_URL   = os.environ.get("OLLAMA_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "phi3")   # change to your model
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "tinyllama")   # lightweight model for faster responses
 
 
 # ── Load sklearn model on startup ─────────────────────────────────────────────
