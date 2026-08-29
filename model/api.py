@@ -22,15 +22,13 @@ import os
 import json
 import re
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from model import load_model, predict, train
 import sys
 import os
 
-# Add rag directory to path so we can import vector_db
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "rag"))
-from vector_db import db
+from rag.vector_db import db
 
 app = Flask(__name__)
 CORS(app)
@@ -344,6 +342,14 @@ def similar_cases():
         return jsonify({"cases": cases}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route("/api/case_pdf/<case_id>", methods=["GET"])
+def get_case_pdf(case_id):
+    """Serve a placeholder PDF for a specific case."""
+    pdf_path = os.path.join(BASE_DIR, "dummy.pdf")
+    if os.path.exists(pdf_path):
+        return send_file(pdf_path, mimetype="application/pdf")
+    return jsonify({"error": "PDF not found"}), 404
 
 @app.route("/api/analyze_fast", methods=["POST"])
 def analyze_fast():

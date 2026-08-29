@@ -561,18 +561,20 @@
       list.innerHTML = data.cases.map(c => {
         const isAccept = (c.metadata.decision || '').toLowerCase() === 'accepted';
         return `
-          <div class="similar-case">
-            <div class="case-head">
-              <div>
-                <div class="case-id">${c.id}</div>
-                <div class="case-title">${c.query.substring(0, 80)}...</div>
+          <a href="http://127.0.0.1:5000/api/case_pdf/${c.id}" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+            <div class="similar-case" style="cursor: pointer;">
+              <div class="case-head">
+                <div>
+                  <div class="case-id">${c.id} <i class="ti ti-external-link" style="font-size: 12px; margin-left: 4px;"></i></div>
+                  <div class="case-title">${c.query.substring(0, 80)}...</div>
+                </div>
+              </div>
+              <div class="case-excerpt">${c.query}</div>
+              <div style="margin-top:10px;">
+                <span class="tag ${isAccept ? 'tag-info' : 'tag-danger'}">${c.metadata.decision}</span>
               </div>
             </div>
-            <div class="case-excerpt">${c.query}</div>
-            <div style="margin-top:10px;">
-              <span class="tag ${isAccept ? 'tag-info' : 'tag-danger'}">${c.metadata.decision}</span>
-            </div>
-          </div>
+          </a>
         `;
       }).join('');
       
