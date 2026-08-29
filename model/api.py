@@ -346,9 +346,15 @@ def similar_cases():
 @app.route("/api/case_pdf/<case_id>", methods=["GET"])
 def get_case_pdf(case_id):
     """Serve a placeholder PDF for a specific case."""
-    pdf_path = os.path.join(BASE_DIR, "dummy.pdf")
+    RAW_TEST_DIR = os.path.join(os.path.dirname(BASE_DIR), "raw test")
+    pdf_path = os.path.join(RAW_TEST_DIR, case_id)
     if os.path.exists(pdf_path):
         return send_file(pdf_path, mimetype="application/pdf")
+        
+    # Fallback to dummy
+    fallback_path = os.path.join(BASE_DIR, "dummy.pdf")
+    if os.path.exists(fallback_path):
+        return send_file(fallback_path, mimetype="application/pdf")
     return jsonify({"error": "PDF not found"}), 404
 
 @app.route("/api/analyze_fast", methods=["POST"])
